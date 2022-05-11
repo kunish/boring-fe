@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react'
-import Grid from '@mui/material/Grid'
-import Card from '@mui/material/Card'
-
 import { fetchPosts } from '@/apis'
+import Post from '@/components/Post'
+import Grid from '@mui/material/Grid'
+import { useEffect, useState } from 'react'
 
 export default () => {
   const [posts, setPosts] = useState<Post[]>([])
@@ -14,9 +13,8 @@ export default () => {
   return (
     <Grid container spacing={2}>
       {posts.map((post) => (
-        <Grid key={post.id} item xs={4}>
-          <Card>{post.title}</Card>
-          <Card>{post.body}</Card>
+        <Grid key={post.id} item xs={6}>
+          <Post post={post} />
         </Grid>
       ))}
     </Grid>
